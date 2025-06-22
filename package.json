@@ -1,0 +1,27 @@
+{
+  "name": "gemini-flash-api",
+  "version": "1.0.0",
+  "description": "Project Sesi3 Kode.id",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stprasst/gemini-flash-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stprasst/gemini-flash-api/issues"
+  },
+  "homepage": "https://github.com/stprasst/gemini-flash-api#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "multer": "^2.0.1"
+  },
+  "devDependencies": {}
+}
