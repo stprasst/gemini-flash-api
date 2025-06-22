@@ -83,7 +83,28 @@ app.post('/generate-from-document', upload.single('document'), async (req, res) 
 
 })
 
+app.post('/generate-from-audio', upload.single('audio'), async (req, res) => {
+    const audioBuffer = fs.readFileSync(req.file.path);
+    const base64Audio = audioBuffer.toString('base64');
+    const audioPart = {
+        inlineData: {
+            data: base64Audio,
+            mimeType: req.file.mimetype
+        }
+    };
 
+    try {
+        let result = await model.generateContent([
+            "Transcribe or analyze the following audio:", audioPart]);
+        let response = await result.response;
+        res.json({text: response.text()});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'Failed to generate audio content'});
+    } finally {
+        fs.unlinkSync(req.file.path);
+    }
+})
 
 
 // async function run() {
